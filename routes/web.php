@@ -21,7 +21,9 @@ Route::post("/register", [AuthController::class, "postRegister"])
 
 Route::get("/dashboard", function () {
     return view("dashboard");
-})->name("view.dashboard");
+})
+    ->name("view.dashboard")
+    ->middleware("auth");
 
 Route::get("/logout", function () {
     Auth::logout();
